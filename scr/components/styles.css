@@ -1,0 +1,58 @@
+.CB_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 90%;
+}
+
+.CB_card {
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.596);
+    height: 300px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1em;
+    margin-top: 0;
+    width: 200px;
+    overflow: hidden;
+}
+
+.CB_card_animation-out {
+    animation: bouncy-out .7s ease-out;
+}
+
+.CB_card_animation-in {
+    animation: bouncy-in .7s ease-in;
+}
+
+.CB_img {
+    border-radius: 10px;
+    object-fit: fill;
+    width: 100%;
+}
+
+@keyframes bouncy-in {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bouncy-out {
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
