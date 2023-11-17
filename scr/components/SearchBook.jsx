@@ -22,6 +22,12 @@ export const SearchBook = () => {
         if (dataReadListSaved) setReadList(JSON.parse(dataReadListSaved))
     }, []);
 
+    useEffect(() => {
+        console.log(readList)
+        localStorage.setItem('readList', JSON.stringify(readList))
+        localStorage.setItem('listFiltered', JSON.stringify(listFiltered))
+    }, [whoList])
+
     const onAddReadList = (item) => {
         setWhoList(1)
         setBookClicked(item.book.ISBN)
@@ -30,11 +36,6 @@ export const SearchBook = () => {
             setReadList([...readList, item])
             setBooksAvailable(booksAvailable.filter((book) => book !== item))
             setListFiltered(listFiltered.filter((book) => book !== item))
-
-            localStorage.setItem('readList', JSON.stringify(readList))
-            localStorage.setItem('listFiltered', JSON.stringify(listFiltered))
-
-
         }, 650);
     }
     const onDeleteReadList = (item) => {
@@ -45,9 +46,6 @@ export const SearchBook = () => {
             setReadList(readList.filter((book) => book != item))
             setBooksAvailable([...booksAvailable, item])
             setListFiltered([...listFiltered, item])
-
-            localStorage.setItem('readList', JSON.stringify(readList))
-            localStorage.setItem('listFiltered', JSON.stringify(listFiltered))
         }, 650);
     }
 
